@@ -27,13 +27,18 @@ class Modal {
     this.openButton.addEventListener("click", this.showModal.bind(this));
     this.closeButton.addEventListener("click", this.closeModal.bind(this));
     this.submitButton.addEventListener("click", this.closeModal.bind(this));
-    window.addEventListener('click',event => {
-      if(event.target === this.modalWrapper){
-         this.closeModal();
-      }else {
-          return false;
-      }
 
-    })
+    window.addEventListener("click", (event) => {
+      if (event.target === this.modalWrapper) {
+        this.closeModal();
+      } else {
+        return false;
+      }
+    });
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        this.closeModal();
+      }
+    });
   }
 }
